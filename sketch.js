@@ -15,15 +15,15 @@ function setup() {
   fill(200)
   textSize(80)
   
-  const mic = new Tone.UserMedia();
+  /*const mic = new Tone.UserMedia();
   mic.open();
 // connect mic to the meter
   mic.connect(meter);
-  setInterval(function(){ setBG(); }, 100);
+  setInterval(function(){ setBG(); }, 100);*/
 } 
 
 function draw() {   
-
+  background(50)
   text(specie, 30, height/2)
 }
 
