@@ -1,5 +1,6 @@
 var contents = ""
 let specie = ""
+let hasClicked = false
 //--------------
 
 function setBG(){
@@ -30,7 +31,9 @@ function draw() {
 
 //------------------------ USER INTERFACE -----------------------------//
 function mousePressed(){
+  hasClicked = true
   userStartAudio();
+  print( getAudioContext().state)
   run()
 }
 function keyPressed() {
