@@ -12,6 +12,7 @@ function setBG(){
 function setup() { 
   
   createCanvas(windowWidth, windowHeight);
+  getAudioContext().suspend();
   fill(200)
   textSize(80)
   
@@ -29,6 +30,7 @@ function draw() {
 
 //------------------------ USER INTERFACE -----------------------------//
 function mousePressed(){
+  userStartAudio();
   run()
 }
 function keyPressed() {
