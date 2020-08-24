@@ -57,7 +57,7 @@ function findNote(c) {
 }
 
 function findDuration(c) {
-  if (c.match(/a|b|c|d|e|f|g|×/i)) {
+  if (c.match(/a|b|c|d|e|f|g|Ã—/i)) {
     return "8n"
   } else if (c.match(/h|i|j|k|l|m|n/i)) {
     return "4n"
@@ -137,7 +137,7 @@ function processMessage(msg, curOct) {
 
 function run(){
   specie = species[int(random(0, species.length-1))]
-  specie = specie.toLowerCase().trim().replace("×", " ")
+  specie = specie.toLowerCase().trim().replace("Ã—", " ")
   fill("#ffffff")
   
   doPiano(specie)
@@ -305,7 +305,7 @@ function findChordNote(c) {
 }
 
 function findChordDuration(c) {
-  if (c.match(/a|b|c|d|e|f|g|×/i)) {
+  if (c.match(/a|b|c|d|e|f|g|Ã—/i)) {
     return "1"
   } else if (c.match(/h|i|j|k|l|m|n/i)) {
     return "2"
@@ -413,10 +413,17 @@ function doCello(specie){
                 play(melody);
             });
 
-            
+            var params = {
+              pan : 0.25 ,
+              volume : -12 ,
+              mute : false ,
+              solo : false
+              }
+            //var channel = new Tone.Channel(params)
             var player = new Tone.Player({
-                retrigger : true
-            }).connect(reverb).connect(ampEnv).connect(pingPong).toMaster();
+                retrigger : true,
+                volume: -12
+            }).connect(reverb).connect(ampEnv).toMaster();
 
             function triggerNote(noteName, duration, time){
                 player.buffer = celloSamples.get(noteName);

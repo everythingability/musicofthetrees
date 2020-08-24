@@ -24,6 +24,23 @@ function setup() {
   setInterval(function(){ setBG(); }, 100);*/
 } 
 
+function touchStarted(){
+  //fullscreen(true)
+   
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
+    //Tone._audioContext = getAudioContext();
+    Tone.start()
+    
+    
+  }
+console.log( "AudioContext: " +  getAudioContext().state)
+ 
+ // n = int(random(0, species.length-1))
+   
+
+}
+
 function draw() {   
   background(50)
   text(specie, 30, height/2)
